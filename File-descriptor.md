@@ -1,4 +1,4 @@
-# 📄 File Descriptors in C
+# 🔧 File Descriptors in C
 
 In C programming, especially on Unix/Linux systems, a **file descriptor** is a low-level integer handle that the operating system uses to manage open files or input/output resources like files, terminals, or network connections.
 
@@ -26,7 +26,7 @@ When you open a file using system calls like `open()`, the OS returns a file des
 
 ---
 
-## 🔧 Example
+## 📄 Example
 
 ```c
 #include <fcntl.h>
