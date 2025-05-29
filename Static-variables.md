@@ -83,4 +83,5 @@ This allows better modular design and prevents name conflicts across files.
 
 ✅ Optimize memory usage by not recreating variables each time.
 
-🔹 Static variables in C are a powerful tool for memory and scope control. Use them wisely to write efficient and modular code.
+
+❗ Static variables in C are a powerful tool for memory and scope control. Use them wisely to write efficient and modular code.
