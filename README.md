@@ -62,8 +62,11 @@ gcc filename.c -o output
 ./output
 ```
 ---
+
 ## 🤝 Contributions
 This is a learning project, but if you have suggestions, corrections, or want to collaborate, feel free to open an issue or PR. I'm learning too!
+
+---
 
 ## 📖 Recommended Resources
 - The C Programming Language – K&R
@@ -71,6 +74,8 @@ This is a learning project, but if you have suggestions, corrections, or want to
 - Learn-C.org
 
 - C Reference
+
+---
 
 ## 🧠 Keep Learning
 This repo grows as I learn. Stay tuned for updates and more topics!
