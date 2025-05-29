@@ -36,9 +36,9 @@ int main() {
 ---
 
 ## ✅ Explanation:
-The variable count is initialized only once when the function is first called.
+- The variable count is initialized only once when the function is first called.
 
-It retains its value across multiple calls to counter().
+- It retains its value across multiple calls to counter().
 
 ## 🔒 Static Global Variables
 When a global variable is declared with static, its visibility is limited to the current file (translation unit). It cannot be accessed from other files.
