@@ -78,3 +78,5 @@ Use with care to avoid undefined behavior.
 | `<stdarg.h>` macros  | Used to access those arguments safely       |
 | Common use cases     | `printf`, loggers, mathematical helpers    |
 
+
+❗Variadic functions offer powerful flexibility in C, but require careful handling to ensure safety and correctness.
