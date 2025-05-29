@@ -15,15 +15,15 @@ int printf(const char *format, ...);
 ---
 
 ## 🛠 How to Declare and Use Variadic Functions
-To handle the variable arguments, C provides macros in the <stdarg.h> header:
+- To handle the variable arguments, C provides macros in the <stdarg.h> header:
 
-va_list: a type to hold information about variable arguments.
+- va_list: a type to hold information about variable arguments.
 
-va_start: initialize the va_list variable.
+- va_start: initialize the va_list variable.
 
-va_arg: retrieve the next argument in the list.
+- va_arg: retrieve the next argument in the list.
 
-va_end: clean up.
+- va_end: clean up.
 
 ---
 
@@ -63,11 +63,11 @@ int main() {
 
 ---
 ## ⚠️ Important Notes
-The function must know how many arguments or their types in some way (e.g., by passing a count as in the example).
+- The function must know how many arguments or their types in some way (e.g., by passing a count as in the example).
 
-No type checking is enforced by the compiler for variadic arguments.
+- No type checking is enforced by the compiler for variadic arguments.
 
-Use with care to avoid undefined behavior.
+- Use with care to avoid undefined behavior.
 
 ---
 ## ✅ Summary Table: Variadic Functions
