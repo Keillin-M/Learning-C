@@ -96,8 +96,8 @@ int main() {
 
 
 ❗Linked lists offer flexibility with dynamic size but require careful memory management to avoid leaks or dangling pointers.
----
 
+---
 # 📦 Understanding Linked Lists with Boxes
 
 Imagine you have a **line of boxes** arranged one after another.
