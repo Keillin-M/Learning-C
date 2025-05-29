@@ -32,32 +32,37 @@ int main() {
     counter();  // Output: Count = 3
     return 0;
 }
+---
 
 ## ✅ Explanation:
 The variable count is initialized only once when the function is first called.
 
 It retains its value across multiple calls to counter().
 
-🔒 Static Global Variables
+## 🔒 Static Global Variables
 When a global variable is declared with static, its visibility is limited to the current file (translation unit). It cannot be accessed from other files.
 
-c
+```c
 Copiar
 Editar
 // file1.c
 static int secret = 42;  // Not accessible outside this file
 This is useful for encapsulation — keeping internal details hidden from other modules.
 
-📌 Static Functions
+---
+
+## 📌 Static Functions
 Similarly, functions declared with static are only visible within the file in which they are defined.
 
-c
+```c
 Copiar
 Editar
 static void helper() {
     // Only callable from within this file
 }
 This allows better modular design and prevents name conflicts across files.
+
+---
 
 ## 🧠 Summary Table
 Use Case	Description
