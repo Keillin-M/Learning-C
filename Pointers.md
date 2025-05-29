@@ -33,11 +33,11 @@ int main() {
 ---
 
 ## Explanation:
-int *p declares a pointer to an integer.
+- int *p declares a pointer to an integer.
 
-&x gives the address of variable x.
+- &x gives the address of variable x.
 
-*p dereferences the pointer to access the value stored at that address.
+- *p dereferences the pointer to access the value stored at that address.
 
 --- 
 
@@ -52,13 +52,13 @@ int *p declares a pointer to an integer.
 ---
 
 ## ⚠️ Common Pointer Uses
-Dynamic memory allocation (malloc, free)
+- Dynamic memory allocation (malloc, free)
 
-Passing large structures or arrays to functions efficiently
+- Passing large structures or arrays to functions efficiently
 
-Creating linked data structures like linked lists, trees
+- Creating linked data structures like linked lists, trees
 
-Implementing callback functions and polymorphism in C
+- Implementing callback functions and polymorphism in C
 
 ---
 
