@@ -43,29 +43,29 @@ clean:
 
 ---
 ## 📍 Explanation:
-CC and CFLAGS define the compiler and compilation flags.
+- CC and CFLAGS define the compiler and compilation flags.
 
-TARGET is the name of the final executable.
+- TARGET is the name of the final executable.
 
-SRCS lists the source code files.
+- SRCS lists the source code files.
 
-OBJS automatically converts source files to object files.
+- OBJS automatically converts source files to object files.
 
-The first rule builds the executable from object files.
+- The first rule builds the executable from object files.
 
-The %.o: %.c rule compiles each .c file to .o.
+- The %.o: %.c rule compiles each .c file to .o.
 
-The clean rule deletes compiled files to allow a fresh build.
+- The clean rule deletes compiled files to allow a fresh build.
 
 ---
 ## 🔑 Why Use Makefiles?
-Automates complex builds.
+- Automates complex builds.
 
-Only recompiles changed files, saving time.
+- Only recompiles changed files, saving time.
 
-Organizes build instructions clearly.
+- Organizes build instructions clearly.
 
-Supports large projects with many files.
+- Supports large projects with many files.
 
 ---
 ## 📋 Summary Table: Makefile Basics
