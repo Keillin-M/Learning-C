@@ -8,13 +8,13 @@ In C, **variadic functions** are functions that accept a **variable number of ar
 
 Variadic functions use an ellipsis (`...`) in their declaration to indicate they can take additional arguments beyond those explicitly named.
 
-Example from the standard library:
+## 🧪 Example from the standard library:
 ```c
 int printf(const char *format, ...);
 ```
 ---
 
-🛠 How to Declare and Use Variadic Functions
+## 🛠 How to Declare and Use Variadic Functions
 To handle the variable arguments, C provides macros in the <stdarg.h> header:
 
 va_list: a type to hold information about variable arguments.
@@ -27,7 +27,7 @@ va_end: clean up.
 
 ---
 
-🧪 Example: Custom sum Function
+## 🧪 Example: Custom sum Function
 ```c
 #include <stdio.h>
 #include <stdarg.h>
@@ -62,7 +62,7 @@ int main() {
 | Function with `static`     | Makes the function only visible in that file     |
 
 ---
-⚠️ Important Notes
+## ⚠️ Important Notes
 The function must know how many arguments or their types in some way (e.g., by passing a count as in the example).
 
 No type checking is enforced by the compiler for variadic arguments.
