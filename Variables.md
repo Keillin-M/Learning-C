@@ -125,7 +125,6 @@ C provides a range of built-in data types that let you store different kinds of 
 | Void               | `void`            | Represents no value (e.g., for functions)        |
 | Size               | `size_t`          | Used for size/index, especially with arrays      |
 
----
 
-> Choosing the right data type ensures your program uses memory efficiently and handles data safely.
+❗ Choosing the right data type ensures your program uses memory efficiently and handles data safely.
 
