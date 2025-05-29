@@ -66,10 +66,14 @@ This allows better modular design and prevents name conflicts across files.
 ---
 
 ## 🧠 Summary Table
-Use Case	Description
-Inside a function	Retains value across calls
-Global variable with static	File-level visibility only
-Static function	File-level scope for functions
+## 🧠 Summary Table
+
+| Use Case                   | Description                                      |
+|----------------------------|--------------------------------------------------|
+| Inside a function          | Retains value across calls                       |
+| Global variable with `static` | Limits visibility to the current file        |
+| Function with `static`     | Makes the function only visible in that file     |
+
 
 ## 📘 Why Use Static Variables?
 ✅ Preserve state between function calls (e.g., counters, caching).
