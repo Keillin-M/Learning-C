@@ -1,4 +1,4 @@
-# 📦 Understanding Structs in C
+# 🔧 Understanding Structs in C
 
 In C, a **struct** (short for structure) is a way to group different variables under one name. These variables can be of different types and represent a single logical entity.
 
