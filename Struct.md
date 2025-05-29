@@ -35,11 +35,11 @@ int main() {
 ---
 
 ## 📍 Explanation
-struct Point defines a new type with two members: x and y.
+- struct Point defines a new type with two members: x and y.
 
-p1 is a variable of type struct Point.
+- p1 is a variable of type struct Point.
 
-We assign values to p1.x and p1.y and then print them.
+- We assign values to p1.x and p1.y and then print them.
 
 ---
 
@@ -59,13 +59,13 @@ We assign values to p1.x and p1.y and then print them.
 ---
 
 # 📦 Struct Analogy: Grouping Items in a Box
-Imagine a box that holds different items together.
+- Imagine a box that holds different items together.
 
-Each item in the box is a member (like x and y).
+- Each item in the box is a member (like x and y).
 
-The box itself is the struct — it groups all these items in one place.
+- The box itself is the struct — it groups all these items in one place.
 
-For example, a person’s profile box might contain a name tag, an age card, and an address note — all different types of information stored together.
+- For example, a person’s profile box might contain a name tag, an age card, and an address note — all different types of information stored together.
 
 ## 📋 Summary Table: Structs
 
