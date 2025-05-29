@@ -1,4 +1,4 @@
-# ⚙️ Understanding Makefiles
+# 🔧 Understanding Makefiles
 
 When you write programs in C (or other languages), your code often consists of **multiple source files**. Compiling them manually can be repetitive and error-prone. A **Makefile** automates the build process by defining rules about how to compile and link your program.
 
