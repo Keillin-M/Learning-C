@@ -66,7 +66,6 @@ This allows better modular design and prevents name conflicts across files.
 ---
 
 ## 🧠 Summary Table
-## 🧠 Summary Table
 
 | Use Case                   | Description                                      |
 |----------------------------|--------------------------------------------------|
