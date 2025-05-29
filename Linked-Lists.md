@@ -25,7 +25,7 @@ struct Node {
 ```
 ---
 
-🧪 Example: Creating and Traversing a Linked List
+## 🧪 Example: Creating and Traversing a Linked List
 ```c
 #include <stdio.h>
 #include <stdlib.h>
