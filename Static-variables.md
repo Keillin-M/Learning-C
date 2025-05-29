@@ -32,6 +32,7 @@ int main() {
     counter();  // Output: Count = 3
     return 0;
 }
+```
 ---
 
 ## ✅ Explanation:
@@ -48,7 +49,7 @@ Editar
 // file1.c
 static int secret = 42;  // Not accessible outside this file
 This is useful for encapsulation — keeping internal details hidden from other modules.
-
+```
 ---
 
 ## 📌 Static Functions
@@ -61,7 +62,7 @@ static void helper() {
     // Only callable from within this file
 }
 This allows better modular design and prevents name conflicts across files.
-
+```
 ---
 
 ## 🧠 Summary Table
