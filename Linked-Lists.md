@@ -133,3 +133,47 @@ You keep following the arrows from box to box, one after the other, until you re
 
 ❗Linked lists are like a chain of boxes connected by arrows, letting you organize and rearrange your stuff flexibly!
 
+---
+
+# 🏷️ Using Linked Lists to Track Multiple Files (File Descriptors)
+
+When you manage multiple files (or file descriptors, fd) in a function like get_next_line, you need to keep track of leftover data separately for each file.
+
+Think of each node in your linked list as a box labeled with the file’s name:
+
+- The label (fd) is like the box’s name or ID — it tells you which file this box belongs to.
+
+- The content of the box (stash) is the leftover data for that particular file.
+
+- The arrow (next) points to the next box in the chain.
+
+## How this works practically:
+
+- When you want to read from a file, you look through the line of boxes for the one whose label (node->fd) matches the file’s descriptor.
+
+- If you find the box, you use the leftover data inside (node->stash).
+
+- If not, you create a new box, label it with that file descriptor, and put it at the end or beginning of the chain.
+
+- This way, each file descriptor has its own dedicated box, keeping its data safe and separate.
+
+## Accessing Data Inside a Node
+
+- Use node->fd to get the file descriptor label (the box’s name).
+
+- Use node->stash (or node->content) to access the leftover data inside the box.
+
+- Use node->next to move to the next box in the linked list.
+
+### Why is the label (fd) important?
+
+Because it helps you find the right box for the file you want to read from. You check each box’s label until you find the match.
+
+| Term              | What It Represents                     |
+|-------------------|--------------------------------------|
+| `fd`              | The box’s **name or ID** (file number) |
+| `node->stash`     | The **content** inside the box (leftover data) |
+| `node->next`      | The **arrow** to the next box          |
+| Searching `fd`    | Looking for the box with that label    |
+
+❗ This method lets your function remember leftover data for multiple files simultaneously using just one static variable — a box holding a chain of labeled boxes — making your program neat and efficient!
