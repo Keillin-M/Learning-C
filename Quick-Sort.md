@@ -11,11 +11,13 @@ You want to sort them from smallest to biggest.
 
 ## 🪄 Step-by-Step Quicksort
 **Step 1: Choose a Pivot**
+
 Pick one number in the list to be your pivot. Let’s say we always pick the last number. In our case, the pivot is:
 ```c
 Pivot = 6
 ```
 **Step 2: Rearrange**
+
 Now, look at all the other numbers and move them around so that:
 - All the numbers smaller than the pivot (6) go to the left
 - All the numbers bigger than the pivot go to the right
@@ -26,6 +28,7 @@ So, we rearrange the list like this:
 Now 6 is in its correct final position in the sorted list!
 
 **Step 3: Repeat on Each Side**
+
 Now take the two smaller parts (the left and right sides) and repeat the same process:
 
 Left part: [3, 5, 1]
