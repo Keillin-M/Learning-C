@@ -92,3 +92,70 @@ if (pid == 0) {
 | Return > 0 | In parent process (child PID)     |
 | Return -1  | Error: fork failed                |
 
+---
+
+## 🧾 What Is a PID?
+
+**PID** stands for **Process ID** — it’s a **unique number** the operating system assigns to **each running process**.
+
+Think of it like a **social security number** for processes. Every time a new process is created (e.g., using `fork()`), it gets a new PID.
+
+---
+
+## 📍 Why Is PID Important?
+
+When you call `fork()`, it creates a **child process**, and that child gets its own PID.
+
+The return value of `fork()` helps you know **which process you're in**:
+
+```c
+pid_t pid = fork();
+
+if (pid == 0) {
+    // 👶 This is the child process
+    printf("I'm the child. My PID is %d\n", getpid());
+} else if (pid > 0) {
+    // 👨 This is the parent process
+    printf("I'm the parent. My child's PID is %d\n", pid);
+} else {
+    // ❌ Fork failed
+}
+```
+
+---
+
+## 🧠 Common PID-related Functions
+
+| Function            | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| `getpid()`          | Returns the PID of **this** process                   |
+| `getppid()`         | Returns the PID of **parent**                         |
+| `fork()`            | Returns the **child PID** to parent, and `0` to child |
+| `waitpid(pid, ...)` | Waits for a specific process to finish                |
+
+---
+
+## 🧪 Example Output
+
+```bash
+I'm the parent. My child's PID is 4567
+I'm the child. My PID is 4567
+```
+
+---
+
+## 🔄 In `pipex`, how is PID used?
+
+You use `pid` to:
+
+* Know when you're in the child (so you can run `execve`)
+* Let the parent `waitpid(pid)` for each child, so it doesn't create zombie processes
+* Track or debug which child is doing what
+
+---
+
+## 🔑 Summary
+
+* **PID** = Process ID (unique to every process)
+* Used to control, track, or wait for processes
+* Critical when working with `fork()` and `execve()`
