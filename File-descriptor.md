@@ -80,3 +80,98 @@ Imagine you want to borrow books from a library:
 | `read()`    | Read bytes from a descriptor |
 | `write()`   | Write bytes to a descriptor  |
 | `close()`   | Close and release descriptor |
+
+---
+
+**Incremental section**
+
+* I/O redirection (`dup2`)
+* Appending to files
+* Connecting pipes using file descriptors
+
+---
+
+### ➕ Extra: File Descriptors in `pipex` and Shell Redirection
+
+In `pipex`, you'll be working **directly** with file descriptors to mimic shell behavior like this:
+
+```bash
+< infile cmd1 | cmd2 > outfile
+```
+---
+
+### 🔄 Redirect Input and Output with `dup2`
+
+You don’t just read and write directly — you often **redirect** input/output to other files or pipes.
+
+```c
+dup2(fd, STDOUT_FILENO);  // Redirect output (stdout)
+dup2(fd, STDIN_FILENO);   // Redirect input (stdin)
+```
+
+This replaces `stdin` or `stdout` with your own file descriptor (like a pipe or opened file).
+After this, anything written to `stdout` goes into your file or pipe instead.
+
+---
+
+### 🧪 Example: Replacing STDOUT
+
+```c
+int out_fd = open("outfile.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+dup2(out_fd, STDOUT_FILENO);  // All printf/write now go to "outfile.txt"
+```
+
+---
+
+### ➕ Appending Instead of Overwriting
+
+If you want to **append** to the output file (like in the `here_doc` bonus):
+
+```c
+int fd = open("outfile.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
+```
+
+* `O_APPEND`: writes go to the end of the file
+* `O_TRUNC`: overwrites the file (default in normal mode)
+
+---
+
+### 🔗 Using Pipes with File Descriptors
+
+When you create a pipe:
+
+```c
+int fd[2];
+pipe(fd);  // fd[0] = read end, fd[1] = write end
+```
+
+To connect one command's output to another’s input:
+
+* `dup2(fd[1], STDOUT_FILENO);` → cmd1 writes to the pipe
+* `dup2(fd[0], STDIN_FILENO);` → cmd2 reads from the pipe
+
+---
+
+### 🔒 Always Close Unused File Descriptors
+
+After duplicating with `dup2()`, **close the original**:
+
+```c
+close(fd[1]);  // After duplicating write end
+close(fd[0]);  // After duplicating read end
+```
+
+If you don’t close them, your program may **hang** because pipes wait for EOF (end-of-file), which never comes if descriptors remain open.
+
+---
+
+### 🔁 Summary
+
+| Tool       | Purpose                                        |
+| ---------- | ---------------------------------------------- |
+| `dup2()`   | Redirect `stdin` or `stdout` to a file or pipe |
+| `O_TRUNC`  | Truncate file (clear contents)                 |
+| `O_APPEND` | Append to file instead of overwriting          |
+| `pipe()`   | Create a unidirectional communication channel  |
+| `close()`  | Release unused file descriptors                |
+
