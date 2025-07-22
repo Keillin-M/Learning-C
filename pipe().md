@@ -94,6 +94,8 @@ In `pipex`, this is done by:
 
 ---
 
+## 🖼️ Pipex Flow: Visual Breakdown
+
 ```lua
              +-----------------+          +-----------------+
              |     infile      |          |     outfile     |
@@ -115,3 +117,57 @@ In `pipex`, this is done by:
                                            +----------------+
 
 ```
+---
+
+## 🧠 What's Happening Here:
+
+1. **Create a pipe**
+
+   ```c
+   int fd[2];
+   pipe(fd);  // fd[0] = read end, fd[1] = write end
+   ```
+
+2. **Fork first child (cmd1)**
+
+   * Redirect `infile` to `stdin` using `dup2(infile_fd, 0)`
+   * Redirect `pipe` write end to `stdout`: `dup2(fd[1], 1)`
+   * Close unused ends: `close(fd[0])`
+
+3. **Fork second child (cmd2)**
+
+   * Redirect `pipe` read end to `stdin`: `dup2(fd[0], 0)`
+   * Redirect `outfile` to `stdout`: `dup2(outfile_fd, 1)`
+   * Close unused ends: `close(fd[1])`
+
+4. **Parent process**
+
+   * Closes both `fd[0]` and `fd[1]`
+   * Waits for both children to finish
+
+---
+
+## 🎯 Data Flow
+
+1. `cmd1` **reads** from the `infile`, **writes** to the pipe.
+2. `cmd2` **reads** from the pipe, **writes** to the `outfile`.
+
+---
+
+## 🧪 Example
+
+If you run:
+
+```bash
+./pipex infile "grep hello" "wc -l" outfile
+```
+
+You’re doing this:
+
+```bash
+< infile grep hello | wc -l > outfile
+```
+
+* `grep hello` gets its input from `infile`, sends matches to pipe
+* `wc -l` reads matches from pipe, counts lines, sends result to `outfile`
+
